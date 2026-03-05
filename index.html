@@ -1,0 +1,990 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAP Executive | Luxury Chauffeur Service</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        /* CSS Variables - Luxury Theme Re-imagined */
+        :root {
+            --color-primary: #0a1128;
+            /* Midnight Navy */
+            --color-secondary: #e5e5e5;
+            /* Platinum */
+            --color-accent: #c5a880;
+            /* Subtle Gold */
+            --color-dark: #050814;
+            --color-text: #f8f9fa;
+            --color-text-muted: #94a3b8;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            --glass: rgba(10, 17, 40, 0.7);
+        }
+
+        /* Essential Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-primary);
+            color: var(--color-text);
+            line-height: 1.7;
+            overflow-x: hidden;
+            letter-spacing: 0.01em;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Utility Classes */
+        .container {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 6%;
+        }
+
+        .section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        /* Premium Buttons */
+        .btn {
+            display: inline-block;
+            padding: 18px 36px;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            outline: none;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background-color: transparent;
+            color: var(--color-secondary);
+            border: 1px solid rgba(229, 229, 229, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-primary:hover {
+            border-color: var(--color-secondary);
+            transform: translateY(-2px);
+        }
+
+        .btn-solid {
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+        }
+
+        .btn-solid:hover {
+            background-color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 32px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        nav.scrolled {
+            background: var(--glass);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            padding: 20px 6%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 48px;
+        }
+
+        .nav-links a {
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+            color: var(--color-accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -6px;
+            left: 0;
+            background-color: var(--color-accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(10, 17, 40, 0.4) 0%, rgba(5, 8, 20, 0.85) 100%);
+            z-index: 1;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            opacity: 0.7;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 6%;
+        }
+
+        .hero-subtitle {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-bottom: 32px;
+            display: block;
+            color: var(--color-accent);
+            font-weight: 500;
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 4.5vw, 3.5rem);
+            /* Much smaller for refined look */
+            line-height: 1.2;
+            margin-bottom: 48px;
+            font-weight: 300;
+            /* Extra light for luxury feel */
+            letter-spacing: 0.05em;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+        }
+
+        /* Marquee Service Area */
+        .marquee-container {
+            width: 100%;
+            background-color: #050814;
+            padding: 30px 0;
+            overflow: hidden;
+            display: flex;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .marquee-content {
+            display: flex;
+            gap: 80px;
+            animation: marquee 40s linear infinite;
+        }
+
+        .marquee-item {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: var(--color-text-muted);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Sections Styling */
+        .section-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--color-accent);
+            margin-bottom: 20px;
+            display: block;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 30px;
+        }
+
+        .about-preview {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image-container img {
+            width: 100%;
+            transition: transform 1s ease;
+        }
+
+        .about-image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Fleet Grid Premium */
+        .fleet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 48px;
+            margin-top: 80px;
+        }
+
+        .fleet-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .fleet-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: var(--color-accent);
+            transform: translateY(-12px);
+            box-shadow: var(--shadow);
+        }
+
+        .fleet-img {
+            width: 100%;
+            height: 220px;
+            object-fit: contain;
+            margin-bottom: 40px;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+            transition: var(--transition);
+        }
+
+        .fleet-card:hover .fleet-img {
+            transform: scale(1.08);
+        }
+
+        .fleet-name {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+
+        .fleet-specs {
+            display: flex;
+            gap: 24px;
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .fleet-specs span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Services Grid Premium */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 80px;
+        }
+
+        .service-card {
+            padding: 50px;
+            background: rgba(10, 17, 40, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            border-color: var(--color-accent);
+            background: rgba(10, 17, 40, 0.5);
+            transform: scale(1.02);
+        }
+
+        .service-icon {
+            width: 42px;
+            height: 42px;
+            color: var(--color-accent);
+            margin-bottom: 30px;
+        }
+
+        .service-title {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+
+        /* AI Section Glassmorphism */
+        .ai-section {
+            background: radial-gradient(circle at top left, #0a1128 0%, #050814 100%);
+        }
+
+        .ai-bg-glow {
+            position: absolute;
+            top: 20%;
+            right: -10%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(197, 168, 128, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .ai-features li {
+            margin-bottom: 24px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .ai-features i {
+            color: var(--color-accent);
+            margin-top: 4px;
+        }
+
+        /* Form Premium Styling */
+        .booking-form {
+            background: rgba(255, 255, 255, 0.03) !important;
+            padding: 60px !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            max-width: 1100px !important;
+            margin: 0 auto !important;
+            backdrop-filter: blur(20px) !important;
+        }
+
+        .form-grid {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 32px !important;
+        }
+
+        .form-group {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 10px !important;
+        }
+
+        .form-group.full {
+            grid-column: span 2 !important;
+        }
+
+        .form-group label {
+            font-size: 0.75rem !important;
+            font-weight: 600 !important;
+            color: var(--color-accent) !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1.5px !important;
+        }
+
+        input,
+        select,
+        textarea {
+            background: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid rgba(255, 255, 255, 0.15) !important;
+            padding: 16px 20px !important;
+            font-weight: 300 !important;
+            letter-spacing: 0.5px !important;
+            color: #ffffff !important;
+            width: 100% !important;
+            border-radius: 2px !important;
+            font-family: var(--font-body) !important;
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.3) !important;
+        }
+
+        /* Footer */
+        footer {
+            background: #03050a;
+            padding: 120px 0 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-grid {
+            display: grid !important;
+            grid-template-columns: 1.5fr 1fr 1fr 1.2fr !important;
+            gap: 80px !important;
+        }
+
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr !important;
+                gap: 40px !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        .footer-logo {
+            letter-spacing: 4px;
+            font-weight: 700;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Responsiveness */
+        @media (max-width: 1024px) {
+
+            .about-preview,
+            .ai-content {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+
+            .section {
+                padding: 80px 0;
+            }
+
+            .booking-form {
+                padding: 40px 6%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="logo">DAP Executive</a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#fleet">Fleet</a>
+            <a href="#services">Services</a>
+            <a href="#ai">AI Travel</a>
+            <a href="#booking">Book Now</a>
+        </div>
+        <div class="menu-toggle">
+            <i data-feather="menu"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <!-- Auto-playing muted looping video background -->
+        <video autoplay muted loop playsinline class="hero-bg">
+            <source src="file:///C:/DapEXEC-Temp/Videos/chauffeur.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content">
+            <span class="hero-subtitle">Modern Luxury Transport</span>
+            <h1 class="hero-title">The Ground Standard for First-Class Travel.</h1>
+            <div class="hero-btns">
+                <a href="#booking" class="btn btn-solid">Book a Ride</a>
+                <a href="#ai" class="btn btn-primary">AI Executive System</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee / Service Areas -->
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <span class="marquee-item">Philadelphia <i data-feather="star" width="16"></i></span>
+            <span class="marquee-item">King of Prussia <i data-feather="star" width="16"></i></span>
+            <span class="marquee-item">Main Line <i data-feather="star" width="16"></i></span>
+            <span class="marquee-item">Wilmington <i data-feather="star" width="16"></i></span>
+            <span class="marquee-item">New York Transfers <i data-feather="star" width="16"></i></span>
+            <span class="marquee-item">PHL Airport <i data-feather="star" width="16"></i></span>
+        </div>
+        <!-- Clone for seamless looping -->
+        <div class="marquee-content clone" aria-hidden="true">
+            <span class="marquee-item">Philadelphia <i data-feather="star" width="16"></i></span>
+            <span class="marquee-item">King of Prussia <i data-feather="star" width="16"></i></span>
+            <span class="marquee-item">Main Line <i data-feather="star" width="16"></i></span>
+            <span class="marquee-item">Wilmington <i data-feather="star" width="16"></i></span>
+            <span class="marquee-item">New York Transfers <i data-feather="star" width="16"></i></span>
+            <span class="marquee-item">PHL Airport <i data-feather="star" width="16"></i></span>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="section container" id="about">
+        <div class="about-preview reveal">
+            <div>
+                <span class="section-label">Our Standard</span>
+                <h2 class="section-title">Elevating the Journey.</h2>
+                <p>At DAP Executive, we redefine private transportation. Combining discreet, highly-trained professional
+                    chauffeurs with an immaculate fleet of the world’s most refined vehicles, we provide an unparalleled
+                    travel experience tailored for executives, VIPs, and those who demand the absolute best.</p>
+
+                <div style="margin-top: 32px; color: var(--color-text-muted); font-size: 0.95rem;">
+                    <p style="margin-bottom: 24px; font-weight: 500; font-size: 1.05rem; color: var(--color-text);">
+                        Providing customized discreet door to door concierge service.</p>
+
+                    <h3
+                        style="margin-bottom: 16px; font-size: 1.25rem; font-family: var(--font-heading); color: var(--color-secondary);">
+                        Why Choose DAP?</h3>
+                    <ul style="list-style-type: none; margin-bottom: 32px;">
+                        <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 12px;"><i
+                                data-feather="check" width="18"
+                                style="color: var(--color-accent); flex-shrink: 0; margin-top: 4px;"></i> <span>Trusted
+                                by families, executives, VIPs, high-profile clients and organizations</span></li>
+                        <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 12px;"><i
+                                data-feather="check" width="18"
+                                style="color: var(--color-accent); flex-shrink: 0; margin-top: 4px;"></i> <span>24/7
+                                availability and flexible packages</span></li>
+                        <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 12px;"><i
+                                data-feather="check" width="18"
+                                style="color: var(--color-accent); flex-shrink: 0; margin-top: 4px;"></i>
+                            <span>Uncompromising commitment to safety, comfort, and excellence</span>
+                        </li>
+                        <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 12px;"><i
+                                data-feather="check" width="18"
+                                style="color: var(--color-accent); flex-shrink: 0; margin-top: 4px;"></i>
+                            <span>Reliable, professional solutions tailored to meet the needs of individuals,
+                                executives, corporate and religious organizations.</span>
+                        </li>
+                    </ul>
+
+                    <div style="padding-left: 16px; border-left: 2px solid var(--color-accent); margin-bottom: 32px;">
+                        <p style="margin-bottom: 12px;">Airport, Train Station or Party destination Let us be your
+                            designated driver.</p>
+                        <p style="margin-bottom: 12px;">College moves, Weddings, Personal deliveries of valuables.</p>
+                        <p style="margin-bottom: 0;">Traveling out of state or just need to get around the city for the
+                            day without the hassle of parking.</p>
+                    </div>
+
+                    <p
+                        style="font-family: var(--font-heading); font-style: italic; font-size: 1.2rem; color: var(--color-secondary);">
+                        We go where you need us to go!! We’ve got you covered—24/7.</p>
+                </div>
+                <br>
+                <a href="#fleet" class="btn btn-primary" style="margin-top: 16px;">Explore Fleet</a>
+            </div>
+            <div class="about-image-container">
+                <img src="Images/rahim-suit.png" alt="DAP Executive Owner"
+                    style="object-fit: cover; width: 100%; height: 100%; min-height: 500px;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet Section -->
+    <section class="section" id="fleet">
+        <div class="container">
+            <div class="section-header text-center reveal" style="text-align: center;">
+                <span class="section-label">Our Collection</span>
+                <h2 class="section-title">The Executive Fleet</h2>
+            </div>
+
+            <div class="fleet-grid">
+                <!-- Vehicle Card 1 -->
+                <div class="fleet-card reveal">
+                    <img src="C:\Users\ashle\.gemini\antigravity\brain\6f295cc7-181d-4fc4-ac93-9bc5428f1c35\luxury_sedan_1772672459884.png"
+                        alt="Executive Sedan" class="fleet-img">
+                    <h3 class="fleet-name">Executive Sedan</h3>
+                    <div class="fleet-specs">
+                        <span><i data-feather="users" width="16"></i> 3 Passengers</span>
+                        <span><i data-feather="briefcase" width="16"></i> 3 Luggages</span>
+                    </div>
+                    <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 24px;">The perfect
+                        balance of luxury and efficiency for airport transfers and city meetings. Features premium
+                        leather seating and climate control.</p>
+                    <a href="#booking" class="btn btn-primary"
+                        style="padding: 12px 24px; font-size: 0.8rem; width: 100%; text-align: center;">Reserve</a>
+                </div>
+
+                <!-- Vehicle Card 2 -->
+                <div class="fleet-card reveal" style="transition-delay: 0.1s;">
+                    <img src="C:\Users\ashle\.gemini\antigravity\brain\6f295cc7-181d-4fc4-ac93-9bc5428f1c35\executive_suv_1772672525495.png"
+                        alt="Premium SUV" class="fleet-img">
+                    <h3 class="fleet-name">Premium SUV</h3>
+                    <div class="fleet-specs">
+                        <span><i data-feather="users" width="16"></i> 6 Passengers</span>
+                        <span><i data-feather="briefcase" width="16"></i> 6 Luggages</span>
+                    </div>
+                    <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 24px;">Commanding
+                        presence and expansive legroom. Ideal for corporate roadshows, small groups, and extended
+                        luggage needs.</p>
+                    <a href="#booking" class="btn btn-primary"
+                        style="padding: 12px 24px; font-size: 0.8rem; width: 100%; text-align: center;">Reserve</a>
+                </div>
+
+                <!-- Vehicle Card 3 -->
+                <div class="fleet-card reveal" style="transition-delay: 0.2s;">
+                    <img src="C:\Users\ashle\.gemini\antigravity\brain\6f295cc7-181d-4fc4-ac93-9bc5428f1c35\vip_transport_1772672575278.png"
+                        alt="VIP Sprinter" class="fleet-img">
+                    <h3 class="fleet-name">VIP Sprinter</h3>
+                    <div class="fleet-specs">
+                        <span><i data-feather="users" width="16"></i> 14 Passengers</span>
+                        <span><i data-feather="briefcase" width="16"></i> 10 Luggages</span>
+                    </div>
+                    <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 24px;">Mobile boardroom
+                        and ultimate group transport. Equipped with captain's chairs, entertainment systems, and
+                        workstation tables.</p>
+                    <a href="#booking" class="btn btn-primary"
+                        style="padding: 12px 24px; font-size: 0.8rem; width: 100%; text-align: center;">Reserve</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services" style="background-color: var(--color-dark);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Expertise</span>
+                <h2 class="section-title">Tailored Services</h2>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <i data-feather="briefcase" class="service-icon"></i>
+                    <h3 class="service-title">Corporate Travel</h3>
+                    <p class="service-desc">Reliable, discreet transportation for roadshows, board meetings, and daily
+                        executive commuting. Dedicated account managers included.</p>
+                </div>
+                <div class="service-card reveal" style="transition-delay: 0.1s;">
+                    <i data-feather="plane" class="service-icon"></i>
+                    <h3 class="service-title">Airport Transfers</h3>
+                    <p class="service-desc">Seamless arrivals and departures. We track your flight in real-time and
+                        provide inside meet-and-greet service at baggage claim.</p>
+                </div>
+                <div class="service-card reveal" style="transition-delay: 0.2s;">
+                    <i data-feather="clock" class="service-icon"></i>
+                    <h3 class="service-title">Hourly As-Directed</h3>
+                    <p class="service-desc">Total flexibility. Keep your chauffeur on standby for an evening out, a
+                        shopping excursion, or a multi-stop itinerary.</p>
+                </div>
+                <div class="service-card reveal" style="transition-delay: 0.3s;">
+                    <i data-feather="star" class="service-icon"></i>
+                    <h3 class="service-title">Special Events</h3>
+                    <p class="service-desc">Make a lasting impression at galas, weddings, and red carpet events with our
+                        immaculate fleet and white-glove service level.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Executive Section -->
+    <section class="section ai-section" id="ai">
+        <div class="ai-bg-glow"></div>
+        <div class="container">
+            <div class="ai-content reveal">
+                <div>
+                    <!-- AI visual representation placeholder, using drone image stylized -->
+                    <img src="C:\Users\ashle\.gemini\antigravity\brain\6f295cc7-181d-4fc4-ac93-9bc5428f1c35\philly_drone_event_1772672795411.png"
+                        alt="AI System"
+                        style="width: 100%; border-radius: 4px; filter: hue-rotate(180deg) saturate(1.5) brightness(0.8);">
+                </div>
+                <div>
+                    <span class="section-label" style="color: #60a5fa;">Next Generation</span>
+                    <h2 class="section-title">AI Executive Travel System</h2>
+                    <p>DAP Executive integrates cutting-edge artificial intelligence to eliminate logistics friction.
+                        Our proprietary system proactively manages every detail of your itinerary so you can focus on
+                        what matters.</p>
+
+                    <ul class="ai-features">
+                        <li>
+                            <i data-feather="zap"></i>
+                            <div>
+                                <strong>Predictive Traffic Routing</strong>
+                                <p style="color: var(--color-text-muted); font-size: 0.9rem;">Adjusts routes in
+                                    real-time anticipating congestion before it happens.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i data-feather="calendar"></i>
+                            <div>
+                                <strong>Calendar Sync Integration</strong>
+                                <p style="color: var(--color-text-muted); font-size: 0.9rem;">Automatically generates
+                                    booking details directly from your Outlook or Google Workspace.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i data-feather="bar-chart-2"></i>
+                            <div>
+                                <strong>Dynamic Fleet Allocation</strong>
+                                <p style="color: var(--color-text-muted); font-size: 0.9rem;">Ensures the perfect
+                                    vehicle is always available matching your specific operational requirements.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="section booking-section" id="booking">
+        <div class="container">
+            <div class="section-header text-center reveal" style="text-align: center;">
+                <span class="section-label">Reservation</span>
+                <h2 class="section-title">Schedule Your Ride</h2>
+            </div>
+
+            <div class="booking-form reveal">
+                <form id="bookingForm"
+                    onsubmit="event.preventDefault(); alert('Booking form submitted successfully! A representative will contact you shortly.');">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="pickup">Pickup Location</label>
+                            <input type="text" id="pickup" placeholder="Enter address or airport" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dropoff">Drop-off Location</label>
+                            <input type="text" id="dropoff" placeholder="Enter address or destination" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date</label>
+                            <input type="date" id="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Time</label>
+                            <input type="time" id="time" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="vehicle">Vehicle Class</label>
+                            <select id="vehicle">
+                                <option value="sedan">Executive Sedan</option>
+                                <option value="suv">Premium SUV</option>
+                                <option value="sprinter">VIP Sprinter</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="passengers">Passengers</label>
+                            <input type="number" id="passengers" min="1" max="14" value="1">
+                        </div>
+                        <div class="form-group full">
+                            <label for="notes">Special Requests / Notes</label>
+                            <textarea id="notes" rows="3"
+                                placeholder="Flight numbers, child seats, preferred routes..."></textarea>
+                        </div>
+                        <div class="form-group full" style="margin-top: 16px;">
+                            <button type="submit" class="btn btn-solid" style="width: 100%;">Request Quote</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">DAP Executive</div>
+                    <p class="footer-about">The premier luxury transportation and AI-driven logistics provider serving
+                        the greater metropolitan area.</p>
+                    <div class="social-links">
+                        <a href="#"><i data-feather="instagram" width="18"></i></a>
+                        <a href="#"><i data-feather="linkedin" width="18"></i></a>
+                        <a href="#"><i data-feather="twitter" width="18"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#fleet">Our Fleet</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#ai">AI System</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Airport Transfers</a></li>
+                        <li><a href="#services">Corporate Accounts</a></li>
+                        <li><a href="#services">Special Events</a></li>
+                        <li><a href="#services">Hourly Directed</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col" id="contact">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:+18005550199">1-800-555-0199</a></li>
+                        <li><a href="mailto:reservations@dapexecutive.com">reservations@dapexecutive.com</a></li>
+                        <li><a href="#">Philadelphia, PA</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 DAP Executive. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Current Date for Booking Form
+        document.getElementById('date').valueAsDate = new Date();
+    </script>
+</body>
+
+</html>
