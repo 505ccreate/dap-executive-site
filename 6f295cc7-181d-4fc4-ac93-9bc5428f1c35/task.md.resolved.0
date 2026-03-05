@@ -1,0 +1,26 @@
+# DAP Executive Luxury Website Build
+
+- [ ] Design System & Architecture
+  - [ ] Setup base layout files (`index.html` and assets folder)
+  - [ ] Define colors, typography, spacing, and animations in `css/main.css`
+  - [ ] Setup `js/main.js` for mobile nav and scroll animations
+- [ ] Home Page Implementation (`index.html`)
+  - [ ] Navigation header (sticky, glassmorphism)
+  - [ ] Hero section (video background placeholder, text, buttons)
+  - [ ] Fleet preview section (vehicle cards)
+  - [ ] Service highlights (grid layout with icons)
+  - [ ] Service area strip (scrolling marquee or minimal list)
+  - [ ] Booking preview form
+  - [ ] Footer
+- [ ] Subpages Implementation
+  - [ ] `fleet.html` (Detailed vehicle cards: capacity, luggage, description)
+  - [ ] `services.html` (Airport, Corporate, Events, Hourly)
+  - [ ] `booking.html` (Detailed multi-step or large form)
+  - [ ] `corporate.html` (Corporate accounts info and lead form)
+  - [ ] `about.html` (Company history, luxury commitment)
+  - [ ] `contact.html` (Contact info, map placeholder, contact form)
+  - [ ] `ai-executive.html` (AI Executive Travel System details)
+- [ ] Interactive Elements & Polish
+  - [ ] Smooth scroll reveal animations
+  - [ ] Hover states and micro-interactions
+  - [ ] Mobile responsiveness testing

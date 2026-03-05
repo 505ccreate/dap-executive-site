@@ -1,0 +1,41 @@
+# Build Luxury Chauffeur Website
+
+We will build a completely new single-page website from scratch, utilizing standard HTML5, CSS3, and modern JavaScript, with a strong emphasis on a premium, luxury aesthetic. We will write all code directly into the existing `c:\Users\ashle\OneDrive\Documents\Antigravity\dap-executive.html` file to circumvent workspace permission issues and simplify deployment.
+
+## User Review Required
+
+We are proceeding with the single-page architectural design. If you're ready, I'll start building the code!
+
+## Proposed Changes
+
+We will modify the single file:
+
+### Core File Modifiction
+#### [MODIFY] [dap-executive.html](file:///c:/Users/ashle/OneDrive/Documents/Antigravity/dap-executive.html)
+
+This file will contain all the HTML structure, CSS styling, and JavaScript interactivity.
+
+**Structure & Navigation**
+- A sticky, glassmorphism navigation bar.
+- Uses anchor links (e.g., `<a href="#fleet">Fleet</a>`) to scroll seamlessly to different sections on the same page.
+
+**Sections Included in Order**
+1. **Hero Header:** Featuring a stunning drone-shot hero image placeholder (or video background) with a "Book a Ride" CTA. 
+2. **About DAP Executive:** A brief introduction to the luxury service.
+3. **The Fleet Showcase:** Grid of vehicle cards utilizing the high-end imagery generated earlier.
+4. **Services Breakdown:** Sections covering Airport Transfers, Corporate Travel, Events, and Hourly services.
+5. **AI Executive Travel System:** Highlighting advanced travel logistics.
+6. **Corporate Accounts:** Details on business partnerships.
+7. **Booking Form & Contact:** A large, comprehensive booking form, contact information, and an interactive footer.
+
+**Styling & Interaction**
+- Custom CSS injected via `<style>` tags with a Midnight Navy, Platinum, and Charcoal color palette.
+- Modern typography utilizing Google Fonts (e.g., Playfair Display and Inter).
+- Custom JavaScript injected via `<script>` tags for scroll-trigger animations (elements fading up as they enter the viewport).
+
+## Verification Plan
+
+### Manual Verification
+1. I will use the browser tool to open `dap-executive.html` locally and verify the layout, typography, and color palette.
+2. I will capture screenshots of the hero section with the browser tool.
+3. Once completed, you can open `c:\Users\ashle\OneDrive\Documents\Antigravity\dap-executive.html` in your own browser to review the design and responsiveness.

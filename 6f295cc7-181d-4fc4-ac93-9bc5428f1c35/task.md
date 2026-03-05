@@ -1,0 +1,21 @@
+# DAP Executive Luxury Website Build
+
+- [ ] Single Page Architecture Setup
+  - [x] Initialize `dap-executive.html`
+  - [x] Embed base CSS styling for luxury aesthetics (colors, typography, spacing)
+  - [x] Embed core JS for smooth scrolling and scroll spy
+- [ ] Section Implementations
+  - [ ] Navigation header (sticky, glassmorphism, internal anchor links)
+  - [ ] Hero section (video background placeholder, rich imagery, CTA)
+  - [ ] Fleet showcase (horizontal scroll or grid with detailed vehicle specs)
+  - [ ] Services breakdown (Airport, Corporate, Events, Hourly)
+  - [ ] Service area strip (scrolling marquee)
+  - [ ] Corporate accounts info
+  - [ ] AI Executive Travel System
+  - [ ] Booking Form (comprehensive form natively in the page)
+  - [ ] About / History
+  - [ ] Contact info & Footer
+- [ ] Interactive Elements & Polish
+  - [ ] Smooth scroll reveal animations using IntersectionObserver
+  - [ ] Hover states and micro-interactions
+  - [ ] Mobile responsiveness testing

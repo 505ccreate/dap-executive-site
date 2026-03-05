@@ -1,0 +1,62 @@
+# Build Luxury Chauffeur Website
+
+We will build a completely new multi-page website from scratch, utilizing standard HTML5, CSS3, and modern JavaScript, with a strong emphasis on a premium, luxury aesthetic. The website will be located at a new directory `c:\Users\ashle\OneDrive\Documents\Antigravity\dap-executive\`.
+
+## User Review Required
+
+- Is `c:\Users\ashle\OneDrive\Documents\Antigravity\dap-executive\` the correct directory to create this project? 
+- We will be using raw HTML, CSS, and JS (no build tools like Webpack or frameworks like React/Next.js) to keep things lightweight yet highly performant and easy to deploy anywhere. Does this approach work for you?
+
+## Proposed Changes
+
+We will create the following files to satisfy the multi-page structure and luxury design requirements:
+
+### Core Layout & Styles
+#### [NEW] [main.css](file:///c:/Users/ashle/OneDrive/Documents/Antigravity/dap-executive/css/main.css)
+Will contain the luxury design system:
+- Midnight Navy, Platinum, Charcoal color palette.
+- Modern typography variables (Playfair Display for headings, Inter for body).
+- Reusable UI component styles (Glassmorphism containers, premium buttons, input fields).
+- Layout grids and flexbox classes.
+- Smooth scroll animations, hover states, and responsive queries.
+
+#### [NEW] [main.js](file:///c:/Users/ashle/OneDrive/Documents/Antigravity/dap-executive/js/main.js)
+Will contain core interactivity:
+- Mobile navigation toggle.
+- Scroll observer for initializing reveal animations.
+- Form interactions (basic validation visually).
+
+### Pages
+#### [NEW] [index.html](file:///c:/Users/ashle/OneDrive/Documents/Antigravity/dap-executive/index.html)
+Home page featuring the Hero section with video background placeholder, Fleet preview, Services grid, Service areas strip, and a Booking preview widget. 
+
+#### [NEW] [fleet.html](file:///c:/Users/ashle/OneDrive/Documents/Antigravity/dap-executive/fleet.html)
+Showcase of the luxury vehicles with specs (passenger/luggage capacity) and booking links.
+
+#### [NEW] [services.html](file:///c:/Users/ashle/OneDrive/Documents/Antigravity/dap-executive/services.html)
+Detailed breakdown of offerings: Airport Transfers, Corporate Travel, Events, Hourly.
+
+#### [NEW] [booking.html](file:///c:/Users/ashle/OneDrive/Documents/Antigravity/dap-executive/booking.html)
+Full interactive booking form with polished inputs for location, dates, times, and vehicle selection.
+
+#### [NEW] [corporate.html](file:///c:/Users/ashle/OneDrive/Documents/Antigravity/dap-executive/corporate.html)
+Information tailored for B2B clients, featuring an inquiry form.
+
+#### [NEW] [about.html](file:///c:/Users/ashle/OneDrive/Documents/Antigravity/dap-executive/about.html)
+Brand story, commitment to luxury, and safety standards.
+
+#### [NEW] [contact.html](file:///c:/Users/ashle/OneDrive/Documents/Antigravity/dap-executive/contact.html)
+Contact directory, map placeholder, and immediate contact form.
+
+#### [NEW] [ai-executive.html](file:///c:/Users/ashle/OneDrive/Documents/Antigravity/dap-executive/ai-executive.html)
+A dedicated landing page outlining the AI Executive Travel System features.
+
+## Verification Plan
+
+### Automated Tests
+Not applicable for a static vanilla HTML/CSS site, though we will validate the HTML for strictness using W3C standards implicitly by writing semantic tags.
+
+### Manual Verification
+1. I will use the browser tool to open `index.html` locally and verify the layout, typography, and color palette.
+2. I will capture a screenshot of the hero section with the browser tool.
+3. Once completed, you can open `c:\Users\ashle\OneDrive\Documents\Antigravity\dap-executive\index.html` in your own browser to review the design and responsiveness.
