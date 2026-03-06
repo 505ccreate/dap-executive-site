@@ -27,7 +27,7 @@
         body { font-family: var(--font-body); background-color: var(--color-primary); color: var(--color-text); line-height: 1.7; overflow-x: hidden; }
         h1,h2,h3,h4 { font-family: var(--font-heading); font-weight: 600; letter-spacing: -0.01em; }
         a { text-decoration: none; color: inherit; }
-        .container { width: 100%; max-width: 1440px; margin: 0 auto; padding: 0 6%; }
+        .container { width: min(100%, 1440px); max-width: 1440px; margin: 0 auto; padding-left: clamp(20px, 4vw, 56px); padding-right: clamp(20px, 4vw, 56px); }
         .section { padding: 120px 0; position: relative; }
 
         .btn { display: inline-block; padding: 18px 36px; font-family: var(--font-body); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2.5px; cursor: pointer; transition: var(--transition); border: none; outline: none; }
@@ -39,8 +39,8 @@
         .reveal { opacity: 0; transform: translateY(40px); transition: opacity 1s cubic-bezier(0.4,0,0.2,1), transform 1s cubic-bezier(0.4,0,0.2,1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        nav { position: fixed; top: 0; width: 100%; padding: 32px 6%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; transition: var(--transition); }
-        nav.scrolled { background: var(--glass); backdrop-filter: blur(25px); padding: 20px 6%; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        nav { position: fixed; top: 0; left: 0; width: 100%; padding: 32px clamp(20px, 4vw, 56px); display: flex; justify-content: space-between; align-items: center; z-index: 1000; transition: var(--transition); }
+        nav.scrolled { background: var(--glass); backdrop-filter: blur(25px); padding: 20px clamp(20px, 4vw, 56px); border-bottom: 1px solid rgba(255,255,255,0.08); }
         .logo { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }
         .nav-links { display: flex; gap: 48px; align-items: center; }
         .nav-links a { font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; opacity: 0.7; transition: var(--transition); position: relative; }
@@ -49,15 +49,15 @@
         .nav-links a:hover::after { width: 100%; }
         .menu-toggle { display: none; cursor: pointer; }
 
-        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; background: #000; }
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; background: #000; width: 100%; }
         .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(10,17,40,0.35) 0%, rgba(5,8,20,0.82) 100%); z-index: 1; }
-        .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0.75; }
-        .hero-content { position: relative; z-index: 2; width: 100%; max-width: 860px; padding: 0 6%; display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center; z-index: 0; opacity: 0.75; }
+        .hero-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2; width: min(100%, 980px); max-width: 980px; margin: 0 auto; padding-left: clamp(20px, 4vw, 56px); padding-right: clamp(20px, 4vw, 56px); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
         .hero-subtitle { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 7px; margin-bottom: 28px; display: block; color: var(--color-accent); font-weight: 500; }
-        .hero-title { font-size: clamp(3rem, 6vw, 5.5rem); line-height: 1.1; margin-bottom: 52px; font-weight: 400; letter-spacing: 0.02em; font-style: italic; }
+        .hero-title { font-size: clamp(2.35rem, 5vw, 4.9rem); line-height: 1.02; margin-bottom: 40px; font-weight: 400; letter-spacing: 0.01em; font-style: italic; white-space: nowrap; text-wrap: nowrap; }
         .hero-btns { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
 
-        .marquee-container { width: 100%; background: #050814; padding: 28px 0; overflow: hidden; display: flex; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .marquee-container { width: 100%; background: #050814; padding: 28px 0; overflow: hidden; display: flex; justify-content: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .marquee-content { display: flex; gap: 80px; animation: marquee 50s linear infinite; flex-shrink: 0; }
         .marquee-item { font-family: var(--font-heading); font-size: 1.05rem; color: var(--color-text-muted); white-space: nowrap; display: flex; align-items: center; gap: 12px; font-style: italic; letter-spacing: 1px; }
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
@@ -148,9 +148,9 @@
             .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
         }
         @media (max-width: 768px) {
-            .hero-title { font-size: 2.8rem; }
+            .hero-title { font-size: clamp(2.2rem, 10vw, 3.2rem); white-space: normal; text-wrap: balance; }
             .section { padding: 80px 0; }
-            .booking-form { padding: 32px 6%; }
+            .booking-form { padding: 32px 20px; }
             .form-grid { grid-template-columns: 1fr; }
             .form-group.full { grid-column: span 1; }
             .footer-grid { grid-template-columns: 1fr; }
@@ -178,7 +178,7 @@
     </video>
     <div class="hero-content">
         <span class="hero-subtitle">Modern Luxury Transport</span>
-        <h1 class="hero-title">First Class Travel.</h1>
+        <h1 class="hero-title">First Class Travel</h1>
         <div class="hero-btns">
             <a href="#booking" class="btn btn-solid">Book a Ride</a>
             <a href="#ai" class="btn btn-primary">AI Executive System</a>
